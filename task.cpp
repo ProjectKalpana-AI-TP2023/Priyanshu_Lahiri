@@ -62,16 +62,35 @@ public:
 int main()
 {
     
-    TextEditor* obj=new TextEditor();                  //this was me testing the program
-    obj->addText("sytfhajdhaskjdfdgdf");
-    obj->deleteText(3);
+    string real="";
+    string showt="";
+    string original="";
+    int del,left,right,pos,show;
+    TextEditor* obj=new TextEditor();                  
+    cout << "enter the text" << endl;;
+    cin >> real;
+    obj->addText(real);
+    cout << "enter how many characters you want to delete" << endl;;
+    cin >> del;
+    cout << "string after deleting: " << endl;
+    obj->deleteText(del);
+    cout << "string after a backspace: " << endl;
     obj->backspace();
-    obj->cursorLeft(12);
-    obj->cursorRight(2);
-    int ind=obj->findCursor();
-    string i=obj->fullText().c_str();
-    string j=obj->showText(3).c_str();
-    cout << ind << endl;
-    cout << i << endl;
-    cout << j << endl;
+    
+    cout << "enter by how many positions do you want to shift cursor to the left" << endl;;
+    cin >> left;
+    obj->cursorLeft(left);
+    cout << "enter by how many positions do you want to shift cursor to the right" <<endl;
+    cin >> right;
+    obj->cursorRight(right);
+    pos=obj->findCursor();
+    cout << "cursor is at: " + pos << endl;
+    cout << "enter the number of characters you want to print after the cursor" << endl;
+    cin >> show;
+    showt=obj->showText(show);
+    cout << "the resulting string is: "+showt << endl;
+    original=obj->fullText();
+    cout << "the original string was: "+original << endl;
+
+    return 0;
 }
